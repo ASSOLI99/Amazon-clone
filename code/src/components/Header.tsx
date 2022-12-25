@@ -12,7 +12,7 @@ function Header() {
     }
   };
   return (
-    <header>
+    <header className="sticky top-0 z-50">
       {/* top nav */}
       <div className="dark:bg-secondary-bg bg-main-bg px-4 py-1 flex gap-2 md:gap-4 justify-between md:justify-center">
         <div>

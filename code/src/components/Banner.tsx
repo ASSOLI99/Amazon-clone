@@ -6,7 +6,7 @@ import "swiper/css/lazy";
 import Image from "next/image";
 function Banner() {
   return (
-    <div className="flex justify-center md:px-32 lg:px-56">
+    <div className="flex justify-center md:px-20 lg:px-32">
       <Swiper
         modules={[Navigation, Lazy, Autoplay]}
         navigation={true}
@@ -19,7 +19,7 @@ function Banner() {
       >
         <SwiperSlide>
           <div className="flex justify-center relative">
-            <div className="h-20 w-full bg-gradient-to-t from-gray-100 to-transparent z-20 bottom-0 absolute "></div>
+            <div className="h-20 w-full bg-gradient-to-t from-gray-100 to-transparent z-10 bottom-0 absolute "></div>
             <div className="w-full  relative h-72 sm:h-96">
               <Image
                 fill
@@ -31,7 +31,7 @@ function Banner() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex justify-center relative">
-            <div className="h-20 w-full bg-gradient-to-t from-gray-100 to-transparent z-20 bottom-0 absolute "></div>
+            <div className="h-20 w-full bg-gradient-to-t from-gray-100 to-transparent z-10 bottom-0 absolute "></div>
             <div className="w-full  relative h-72 sm:h-96">
               <Image
                 fill
@@ -43,7 +43,7 @@ function Banner() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex justify-center relative">
-            <div className="h-20 w-full bg-gradient-to-t from-gray-100 to-transparent z-20 bottom-0 absolute "></div>
+            <div className="h-20 w-full bg-gradient-to-t from-gray-100 to-transparent z-10 bottom-0 absolute "></div>
             <div className="w-full  relative h-72 sm:h-96">
               <Image
                 fill
@@ -55,7 +55,7 @@ function Banner() {
         </SwiperSlide>
         <SwiperSlide>
           <div className="flex justify-center relative">
-            <div className="h-20 w-full bg-gradient-to-t from-gray-100 to-transparent z-20 bottom-0 absolute "></div>
+            <div className="h-20 w-full bg-gradient-to-t from-gray-100 to-transparent z-10 bottom-0 absolute "></div>
             <div className="w-full  relative h-72 sm:h-96">
               <Image
                 fill
