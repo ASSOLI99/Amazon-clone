@@ -6,7 +6,7 @@ import "swiper/css/lazy";
 import Image from "next/image";
 function Banner() {
   return (
-    <div className="flex justify-center md:px-20 lg:px-32">
+    <div className="flex justify-center md:px-32 lg:px-40">
       <Swiper
         modules={[Navigation, Lazy, Autoplay]}
         navigation={true}
@@ -23,7 +23,7 @@ function Banner() {
             <div className="w-full  relative h-72 sm:h-96">
               <Image
                 fill
-                src="https://images.pexels.com/photos/3738673/pexels-photo-3738673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/325876/pexels-photo-325876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="test photo"
               />
             </div>
@@ -35,7 +35,7 @@ function Banner() {
             <div className="w-full  relative h-72 sm:h-96">
               <Image
                 fill
-                src="https://images.pexels.com/photos/14814115/pexels-photo-14814115.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="test photo"
               />
             </div>
@@ -47,7 +47,7 @@ function Banner() {
             <div className="w-full  relative h-72 sm:h-96">
               <Image
                 fill
-                src="https://images.pexels.com/photos/14783910/pexels-photo-14783910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/3858268/pexels-photo-3858268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="test photo"
               />
             </div>
@@ -59,7 +59,7 @@ function Banner() {
             <div className="w-full  relative h-72 sm:h-96">
               <Image
                 fill
-                src="https://images.pexels.com/photos/14825235/pexels-photo-14825235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="test photo"
               />
             </div>
