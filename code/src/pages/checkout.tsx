@@ -7,6 +7,10 @@ import Header from "../components/Header";
 import { Product, selectTotal } from "../slice/basketSlice";
 import { TbMoodEmpty } from "react-icons/tb";
 import { useSession } from "next-auth/react";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+//@ts-ignore
+const stripePromise = loadStripe(process.env.stripe_public_key);
 function checkout() {
   const [darkMood, setDarkMood] = useState(false);
   const items: Product[] = useSelector(
@@ -14,6 +18,20 @@ function checkout() {
   );
   const total = useSelector(selectTotal);
   const { data: session } = useSession();
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
+    const checkoutSession = await axios.post("api/create-checkout-session", {
+      items,
+      email: session?.user?.email,
+    });
+    //redirect customer
+    const result = await stripe?.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+    if (result?.error) {
+      alert(result?.error.message);
+    }
+  };
   return (
     <div className={darkMood ? "dark bg-gray-100" : "bg-gray-100"}>
       <Header />
@@ -42,7 +60,7 @@ function checkout() {
           </div>
         </div>
         {/* right side */}
-        <div>
+        <div className="bg-white">
           {items.length > 0 && (
             <>
               <h2>
@@ -50,6 +68,8 @@ function checkout() {
                 <span className="font-bold">${total.toFixed(2)}</span>
               </h2>
               <button
+                role="link"
+                onClick={createCheckoutSession}
                 disabled={!session}
                 className={`mt-2 ${
                   !session
