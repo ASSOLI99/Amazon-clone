@@ -4,9 +4,9 @@ import { store } from "../../store";
 import { Provider } from "react-redux";
 import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, session }: any) {
   return (
-    <SessionProvider session={pageProps.session}>
+    <SessionProvider session={session}>
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
