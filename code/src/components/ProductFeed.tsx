@@ -9,7 +9,7 @@ function ProductFeed({ products }: any) {
       {products.map((item: any, index: number) => {
         if (index == 4) {
           return (
-            <div className="relative w-full h-72">
+            <div key={item.id} className="relative w-full h-72">
               <Link
                 href="/offers"
                 className="font-bold rounded-xl md:rounded-none bg-main-theme/90 hover:bg-secondary-theme transition-all text-white-text text-center  absolute left-1/2 top-1/2 -translate-x-1/2 z-20 w-64 md:w-full text-2xl md:text-6xl"

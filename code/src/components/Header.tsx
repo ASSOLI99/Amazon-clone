@@ -2,7 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { BiCartAlt, BiSearchAlt, BiMenu } from "react-icons/bi";
+import { signIn, signOut, useSession } from "next-auth/react";
 function Header() {
+  const { data: session } = useSession();
+  if (session) {
+    console.log(session.user?.email);
+  } else {
+    console.log("hi");
+  }
   const [showNav, setShowNav] = useState(false);
   const showNavHandler = () => {
     if (showNav == false) {
@@ -34,12 +41,14 @@ function Header() {
         <div className="flex items-center dark:text-black-text text-white-text ">
           <ul className="flex gap-3  sm:gap-6 justify-between items-center">
             <li className="hover:text-sky-400 transition cursor-pointer">
-              <Link href="#">
-                <p className="text-vs">Hello Abdullah</p>
+              <div onClick={() => (!session ? signIn() : signOut())}>
+                <p className="text-vs">
+                  {session ? `Hello ${session.user?.name}` : "LOGIN"}
+                </p>
                 <p className="text-sm md:text-md text-md font-bold pt-2">
                   Account & List
                 </p>
-              </Link>
+              </div>
             </li>
             <li className="hover:text-main-theme transition cursor-pointer">
               <Link href="#">
