@@ -36,7 +36,6 @@ export default NextAuth({
   // https://next-auth.js.org/configuration/options#jwt
   jwt: {
     // A secret to use for key generation (you should set this explicitly)
-    secret: process.env.SECRET,
     // Set to true to use encryption (default: false)
     // encryption: true,
     // You can define your own encode/decode functions for signing and encryption
@@ -45,7 +44,7 @@ export default NextAuth({
     // decode: async ({ secret, token, maxAge }) => {},
   },
   // Enable debug messages in the console if you are having problems
-  debug: true,
+  debug: false,
 })
 // import NextAuth from "next-auth"
 // import GoogleProvider from "next-auth/providers/google"
