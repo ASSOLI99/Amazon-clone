@@ -5,13 +5,13 @@ export default NextAuth({
   providers: [
     GoogleProvider({
       //@ts-ignore
-      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientId: "953050878374-36c472086m1m04vvek7ntp9dtsjfgh6c.apps.googleusercontent.com",
        //@ts-ignore
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientSecret: "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",
     }),
   ],
 
-  secret: process.env.SECRET,
+  secret: "af836ef45262f066ccd1e00bc52a7b22",
   debug: true,
   
 })
