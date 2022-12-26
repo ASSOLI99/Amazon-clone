@@ -53,7 +53,7 @@ function Header() {
             <li className="hover:text-main-theme transition cursor-pointer">
               <Link href="#">
                 <p className="text-vs">Refunds</p>
-                <p className="text-sm md:text-md font-bold pt-2">& aaOrders</p>
+                <p className="text-sm md:text-md font-bold pt-2">& Orders</p>
               </Link>
             </li>
             <li className="hover:text-sky-400 transition cursor-pointer">
