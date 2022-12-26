@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { AiTwotoneStar } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slice/basketSlice";
 // interface ProductProp {
 //   id: number;
 //   title: string;
@@ -13,6 +15,11 @@ import { AiTwotoneStar } from "react-icons/ai";
 // }
 function Product({ item }: any) {
   const { id, title, price, description, category, image, rating } = item;
+  const dispatch = useDispatch();
+  const addToBasketHandler = () => {
+    const product = { id, title, price, description, category, image, rating };
+    dispatch(addToBasket(product));
+  };
   return (
     <div
       key={id}
@@ -25,7 +32,13 @@ function Product({ item }: any) {
         href={`product/${id}`}
         className="self-center mb-2 h-56 flex items-center justify-center"
       >
-        <Image src={image} width={150} height={150} alt="product image" />
+        <Image
+          loading="lazy"
+          src={image}
+          width={150}
+          height={150}
+          alt="product image"
+        />
       </Link>
       <h4 className="font-bold text-md mb-2">{title}</h4>
       <div className="flex mb-1 items-center text-gray-600 text-sm">
@@ -44,7 +57,10 @@ function Product({ item }: any) {
           : description}
       </p>
       <p className="font-bold text-gray-700 mb-10">{`$${price}`}</p>
-      <button className="drop-shadow w-full bottom-0 absolute left-1/2 -translate-x-1/2 font-bold rounded-b-lg py-1 bg-sky-400 active:bg-sky-600 hover:bg-secondary-theme transition-all  ">
+      <button
+        onClick={addToBasketHandler}
+        className="drop-shadow w-full bottom-0 absolute left-1/2 -translate-x-1/2 font-bold rounded-b-lg py-1 bg-sky-400 active:bg-sky-600 hover:bg-secondary-theme transition-all  "
+      >
         Add To Cart
       </button>
     </div>

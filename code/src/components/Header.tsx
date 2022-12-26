@@ -3,13 +3,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { BiCartAlt, BiSearchAlt, BiMenu } from "react-icons/bi";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 function Header() {
+  const items = useSelector((state: RootState) => state.basket.items);
   const { data: session } = useSession();
-  if (session) {
-    console.log(session.user?.email);
-  } else {
-    console.log("hi");
-  }
+  const router = useRouter();
   const [showNav, setShowNav] = useState(false);
   const showNavHandler = () => {
     if (showNav == false) {
@@ -22,7 +22,7 @@ function Header() {
     <header className="sticky top-0 z-50">
       {/* top nav */}
       <div className="dark:bg-secondary-bg bg-main-bg px-4 py-1 flex gap-2 md:gap-4 justify-between md:justify-center">
-        <div>
+        <div onClick={() => router.push("/")} className="cursor-pointer">
           <Image src="/NEPNET.png" alt="NepNet logo" height={50} width={50} />
         </div>
 
@@ -57,18 +57,22 @@ function Header() {
               </Link>
             </li>
             <li className="hover:text-sky-400 transition cursor-pointer">
-              <Link href="#">
+              <div
+                onClick={() => {
+                  router.push("/checkout");
+                }}
+              >
                 <span className="relative">
                   <BiCartAlt className="inline text-4xl" />
                   <span className="bg-main-theme text-vs text-white font-bold absolute right-0 rounded-xl px-1 py-2">
-                    2
+                    {items.length}
                   </span>
                 </span>
                 <span className="text-sm hidden md:inline-block font-bold ml-1">
                   {" "}
                   Basket
                 </span>
-              </Link>
+              </div>
             </li>
           </ul>
         </div>
