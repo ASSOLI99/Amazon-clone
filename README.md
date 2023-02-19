@@ -1,1 +1,1 @@
-<a href="https://www.nepnet.online/">see the demo here</a>
+<a href="https://amazon-clone-indol-five.vercel.app/">see the demo here</a>
